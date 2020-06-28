@@ -1,6 +1,6 @@
-# Component five, compares answer to input and adds a +1 win counter if you win round
+# Component four, random numbers generated into a statement and new set of numbers appear with each round
 
-# Number checker functions
+import random
 
 
 def num_check(question, low, high):
@@ -28,7 +28,6 @@ def qst_statement(question):
             print("Invalid input, try again")
 
 
-# Start of loop
 keep_going = ""
 while keep_going == "":
 
@@ -41,10 +40,19 @@ while keep_going == "":
 
     # Sets counters to 0
     round_counter = 0
-    win_counter = 0
 
     # Waits for the number of rounds played reach number of rounds needed to play then stop the game
     while round_counter < rounds:
+
+        # Generates and prints the numbers at the the start of each round. (prints for testing purposes)
+        a = round(random.uniform(1, 100), 2)
+        print("#1 = {}".format(a))
+        b = round(random.uniform(1, 100), 2)
+        print("#2 = {}".format(b))
+
+        # Sum of the preceding random numbers
+        total = round(a + b, 2)
+        print("Total = {:.2f}\n".format(total))
 
         # Adds a +1 round counter at the start of each round
         round_counter += 1
@@ -53,18 +61,15 @@ while keep_going == "":
         print("Round ({})\n".format(round_counter))
 
         # Asks question
-        answer = qst_statement("What's 4.11 + 3.83 = ")
+        answer = qst_statement("What's {} + {} = ".format(a, b))
 
         # Checks if the answer is correct to the preceding question
-        if answer == 7.94:
+        if answer == total:
             # Win statement
-            win_counter += 1
             print("correct\n")
         else:
             # Lose statement
-            print("Incorrect, the answer was 7.94\n")
+            print("Incorrect, the answer was {}\n".format(total))
 
-        # Prints how many games won/lost
-        print("WON: {}  |  LOST: {}\n".format(win_counter, round_counter - win_counter))
     # Loop of function
     keep_going = input("press <enter> to play again or any other key to stop")
