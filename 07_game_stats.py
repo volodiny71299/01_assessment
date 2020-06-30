@@ -35,7 +35,7 @@ while keep_going == "":
     # So user doesn't make a game too long
     # So doesn't break the game due to entering 0 or a negative number as the game will instantly end
 
-    rounds = num_check("Rounds: ", 1, 20)
+    rounds = num_check("Questions: ", 1, 20)
     print()
 
     # Sets counters to 0
@@ -65,9 +65,9 @@ while keep_going == "":
         round_counter += 1
 
         # Prints the current round that the user is on
-        print("Round ({})\n".format(round_counter))
+        print("Question ({})\n".format(round_counter))
 
-        question = "{} + {} = ".format(a, b)
+        question = "{:.2f} + {:.2f} = ".format(a, b)
 
         # Asks question
         answer = qst_statement("What's {}".format(question))
@@ -81,12 +81,12 @@ while keep_going == "":
             win_counter += 1
 
             # Win statement
-            won_lost.append('Won\t')
+            won_lost.append('correct')
             print("correct\n")
 
         else:
             # Lose statement and prints the correct answer
-            won_lost.append('Lost\t')
+            won_lost.append('incorrect, should of been {}'.format(total))
             print("Incorrect, the answer was {}\n".format(total))
 
         # Collects round info when you win a game
@@ -96,19 +96,20 @@ while keep_going == "":
         question_stats.append(question)
 
         # Prints end of round results showing how much games you won and lost
-        print("WON: {}  |  LOST: {}\n".format(win_counter, (round_counter - win_counter)))
+        print("Correct: {}  |  Incorrect: {}\n".format(win_counter, (round_counter - win_counter)))
 
     # Game history showing if you won/lost the round and prints the question and the answer and shows what user answered
     list_count = 1
     for i in range(len(correct_answers)):
 
         # Prints game history | round #, won/lost, question (a + b =), answer, what user answered
-        print("Round {}: {}|\t"
-              "Q: {}\t{}\t|\t "
-              "your answer: {:.2f}".format(list_count, won_lost[i],
-                                           question_stats[i], correct_answers[i], your_answer[i]))
+        print("Question {}: {}{:.2f}\t({})".format(list_count, question_stats[i], your_answer[i], won_lost[i]))
 
         list_count += 1
+
+    print()
+
+    print("Your win-rate percentage for this game was {:.2f}%".format(100*(win_counter/rounds)))
 
     # Loop of function to start and play again
     print()
