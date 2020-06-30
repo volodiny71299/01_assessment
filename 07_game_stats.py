@@ -86,7 +86,7 @@ while keep_going == "":
 
         else:
             # Lose statement and prints the correct answer
-            won_lost.append('incorrect, should of been {}'.format(total))
+            won_lost.append('incorrect, should be {}'.format(total))
             print("Incorrect, the answer was {}\n".format(total))
 
         # Collects round info when you win a game
@@ -103,13 +103,13 @@ while keep_going == "":
     for i in range(len(correct_answers)):
 
         # Prints game history | round #, won/lost, question (a + b =), answer, what user answered
-        print("Question {}: {}{:.2f}\t({})".format(list_count, question_stats[i], your_answer[i], won_lost[i]))
+        print("Question {}: {}{:.2f} \t({})".format(list_count, question_stats[i], your_answer[i], won_lost[i]))
 
         list_count += 1
 
     print()
 
-    print("Your win-rate percentage for this game was {:.2f}%".format(100*(win_counter/rounds)))
+    print("Your win percentage for this game was {:.2f}%".format(100*(win_counter/rounds)))
 
     # Loop of function to start and play again
     print()
