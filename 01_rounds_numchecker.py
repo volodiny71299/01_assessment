@@ -19,5 +19,5 @@ def num_check(question, low, high):
 # So doesn't break the game due to entering 0 or a negative number as the game will instantly end
 
 
-rounds = num_check("How many rounds? ", 1, 20)
-print("Rounds: {}".format(rounds))
+question = num_check("How many questions? ", 1, 20)
+print("Question: {}".format(question))

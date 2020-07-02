@@ -47,6 +47,7 @@ while keep_going == "":
     question_stats = []
     your_answer = []
     won_lost = []
+
     # Waits for the number of rounds played reach number of rounds needed to play then stop the game
     while round_counter < rounds:
 
@@ -89,10 +90,6 @@ while keep_going == "":
 
             won_lost.append('incorrect, should be {}'.format(total))
 
-            won_lost.append('incorrect, should of been {}'.format(total))
-
-            print("Incorrect, the answer was {}\n".format(total))
-
         # Collects round info when you win a game
         correct_answers.append(total)
 
@@ -106,17 +103,17 @@ while keep_going == "":
     list_count = 1
     for i in range(len(correct_answers)):
 
-        # Prints game history | round #, won/lost, question (a + b =), answer, what user answered
-
+        # Prints game history >>> question number, question itself
+        # user answer, win/lost stat if lost print correct answer
         print("Question {}: {}{:.2f} \t({})".format(list_count, question_stats[i], your_answer[i], won_lost[i]))
 
+        # Goes to the next item (next question number)
         list_count += 1
 
     print()
 
+    # Prints the percentage of how many games you won
     print("Your win percentage for this game was {:.2f}%".format(100*(win_counter/rounds)))
-
-    print("Your win-rate percentage for this game was {:.2f}%".format(100*(win_counter/rounds)))
 
     # Loop of function to start and play again
     print()
