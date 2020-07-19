@@ -38,7 +38,6 @@ def statement_look(statement, char):
 
     # number of characters of statement for bottom row of the statement
     print(char * len(statement))
-    print()
 
 
 rules = "Welcome to a simple addition game.\nAll answers are below 200\nYou can choose to answer 1 to 20 questions\n"
@@ -81,7 +80,7 @@ while keep_going == "":
         question = "{:.2f} + {:.2f} = ".format(a, b)
 
         # Asks question
-        answer = qst_statement("What is {}".format(question))
+        answer = qst_statement("\nWhat is {}".format(question))
 
         # Collects your answer for the end of game stats to show what you answered
         your_answer.append(answer)
@@ -111,6 +110,8 @@ while keep_going == "":
         # Prints end of round results showing how much games you won and lost
         statement_look("Correct: {}  |  Incorrect: {}".format(win_counter, (round_counter - win_counter)), "—")
 
+    print()
+
     # Game history showing if you won/lost the round and prints the question and the answer and shows what user answered
     list_count = 1
     for i in range(len(correct_answers)):
@@ -130,4 +131,4 @@ while keep_going == "":
     # Loop of function to start and play again
     print()
     keep_going = input("press <enter> to play again or any other key to stop")
-print("You have finished the game, thank you for palying!")
+print("\nYou have finished the game, thank you for playing!")
