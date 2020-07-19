@@ -41,7 +41,7 @@ def statement_look(statement, char):
     print()
 
 
-rules = "Welcome to a simple addition game.\nAll answers are below 200\n"
+rules = "Welcome to a simple addition game.\nAll answers are below 200\nYou can choose to answer 1 to 20 questions\n"
 print(rules)
 keep_going = ""
 while keep_going == "":
@@ -51,7 +51,6 @@ while keep_going == "":
     # So doesn't break the game due to entering 0 or a negative number as the game will instantly end
 
     rounds = num_check("Questions: ", 1, 20)
-    print()
 
     # Sets counters to 0
     round_counter = 0
@@ -101,7 +100,7 @@ while keep_going == "":
             # Collects the round info
             won_lost.append('incorrect, should be {}'.format(total))
             # Lose statement and prints the correct answer
-            print("")
+            print("Incorrect, the correct answer was {}".format(total))
 
         # Collects round info when you win a game
         correct_answers.append(total)
@@ -110,7 +109,7 @@ while keep_going == "":
         question_stats.append(question)
 
         # Prints end of round results showing how much games you won and lost
-        print("Correct: {}  |  Incorrect: {}".format(win_counter, (round_counter - win_counter)))
+        statement_look("Correct: {}  |  Incorrect: {}".format(win_counter, (round_counter - win_counter)), "—")
 
     # Game history showing if you won/lost the round and prints the question and the answer and shows what user answered
     list_count = 1
@@ -126,8 +125,9 @@ while keep_going == "":
     print()
 
     # Prints the percentage of how many games you won
-    print("Your win percentage for this game was {:.2f}%".format(100*(win_counter/rounds)))
+    print("Your win percentage for the quiz was {:.2f}%".format(100*(win_counter/rounds)))
 
     # Loop of function to start and play again
     print()
     keep_going = input("press <enter> to play again or any other key to stop")
+print("You have finished the game, thank you for palying!")
