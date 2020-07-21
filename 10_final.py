@@ -126,7 +126,7 @@ while keep_going == "":
     print()
 
     # Prints the percentage of how many games you won
-    print("Your win percentage for the quiz was {:.2f}%".format(100*(win_counter/rounds)))
+    print("You got {} out of {} questions correct".format(win_counter, rounds))
 
     # Loop of function to start and play again
     print()
