@@ -93,13 +93,13 @@ while keep_going == "":
             # Collects the round info
             won_lost.append('correct')
             # Win statement
-            print("Correct\n")
+            print("Correct")
 
         else:
             # Collects the round info
             won_lost.append('incorrect, should be {}'.format(total))
             # Lose statement and prints the correct answer
-            print("Incorrect, the correct answer was {}".format(total))
+            print("Incorrect, the answer was {}".format(total))
 
         # Collects round info when you win a game
         correct_answers.append(total)
